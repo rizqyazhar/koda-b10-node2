@@ -1,0 +1,16 @@
+{
+  "name": "koda-b10-node2",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "rizqyazhar",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.mjs"
+  },
+  "dependencies": {
+    "moment": "^2.31.0"
+  }
+}
