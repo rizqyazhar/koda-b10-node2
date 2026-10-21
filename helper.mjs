@@ -14,14 +14,14 @@ export function convertDateWithoutMoment(input) {
   const tahun = Number(splited[2]);
 
   if (
-    ((digitHari < 0 && digitHari > 31) ||
-      (digitBulan < 0 && digitBulan > 12)) &&
-    input.charAt(2) === "-" &&
-    input.charAt(5) === "-"
+    (digitHari < 0 && digitHari > 31) ||
+    (digitBulan < 0 && digitBulan > 12) ||
+    !digitHari ||
+    !digitBulan ||
+    !tahun ||
+    (input.charAt(2) !== "-" && input.charAt(5) !== "-")
   )
     return "Format tanggal salah";
-
-  if (splited.length === 0) return "Format tanggal salah";
 
   const dateToConvert = new Date(tahun, digitBulan - 1, digitHari);
   const options = {
