@@ -15,7 +15,28 @@ export default defineConfig([
       globals: globals.node,
     },
     rules: {
+      "@stylistic/indent": ["error", 2],
       "@stylistic/semi": ["error", "always"],
+      "@stylistic/quotes": [
+        "error",
+        "double",
+        {
+          allowTemplateLiterals: "always",
+        },
+      ],
+      "@stylistic/no-multiple-empty-lines": [
+        "error",
+        {
+          max: 2,
+          maxEOF: 0,
+        },
+      ],
+      "@stylistic/no-multi-spaces": [
+        "error",
+        {
+          ignoreEOLComments: false,
+        },
+      ],
       "object-curly-newline": [
         "error",
         {

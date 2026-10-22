@@ -27,10 +27,16 @@ export function convertDateWMoment(input) {
   const tahun = Number(splited[2]);
 
   if (!validator(input, digitHari, digitBulan, tahun))
-    return { bool: false, mes: "Format tanggal salah" };
+    return {
+      bool: false,
+      mes: "Format tanggal salah",
+    };
 
   if (!moment(input, "DD-MM-YYYY"))
-    return { bool: false, mes: "Format tanggal salah" };
+    return {
+      bool: false,
+      mes: "Format tanggal salah",
+    };
 
   return moment(input, "DD-MM-YYYY").format("DD/MM/YYYY");
 }
@@ -43,7 +49,10 @@ export function convertDateWithoutMoment(input) {
   const tahun = Number(splited[2]);
 
   if (!validator(input, digitHari, digitBulan, tahun))
-    return { bool: false, mes: "Format tanggal salah" };
+    return {
+      bool: false,
+      mes: "Format tanggal salah",
+    };
 
   const dateToConvert = new Date(tahun, digitBulan - 1, digitHari);
   const options = {
