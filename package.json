@@ -8,13 +8,16 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index.mjs"
+    "start": "node ./index.mjs",
+    "lint": "eslint *.mjs *.js *.cjs",
+    "lint:fix": "eslint *.mjs *.js *.cjs --fix"
   },
   "dependencies": {
     "moment": "^2.31.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
     "eslint": "^10.13.0",
     "globals": "^17.13.0"
   }

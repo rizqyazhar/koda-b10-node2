@@ -6,7 +6,10 @@ import { convertDateWMoment, convertDateWithoutMoment } from "./helper.mjs";
 // const userInput = "24-04-2015";
 
 async function ask(query) {
-  const rl = createInterface({ input: process.stdin, output: process.stdout });
+  const rl = createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
   const res = await rl.question(query);
   rl.close();
   return res;
