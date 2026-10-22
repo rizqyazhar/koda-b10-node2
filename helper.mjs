@@ -2,14 +2,21 @@ import moment from "moment";
 
 function validator(input, digitHari, digitBulan, tahun) {
   if (
-    (digitHari < 1 && digitHari > 31) ||
-    (digitBulan < 1 && digitBulan > 12) ||
+    digitHari > 31 ||
+    digitBulan > 12 ||
+    (digitHari === 31 &&
+      (digitBulan === 4 ||
+        digitBulan === 6 ||
+        digitBulan === 9 ||
+        digitBulan === 11)) ||
+    (digitBulan === 2 && digitHari > 28) ||
     !digitHari ||
     !digitBulan ||
     !tahun ||
     (input.charAt(2) !== "-" && input.charAt(5) !== "-")
   )
     return false;
+  return true;
 }
 
 export function convertDateWMoment(input) {
@@ -20,8 +27,10 @@ export function convertDateWMoment(input) {
   const tahun = Number(splited[2]);
 
   if (!validator(input, digitHari, digitBulan, tahun))
-    return "Format tanggal salah";
-  if (!moment(input, "DD-MM-YYYY")) return "Format tanggal salah";
+    return { bool: false, mes: "Format tanggal salah" };
+
+  if (!moment(input, "DD-MM-YYYY"))
+    return { bool: false, mes: "Format tanggal salah" };
 
   return moment(input, "DD-MM-YYYY").format("DD/MM/YYYY");
 }
@@ -34,7 +43,7 @@ export function convertDateWithoutMoment(input) {
   const tahun = Number(splited[2]);
 
   if (!validator(input, digitHari, digitBulan, tahun))
-    return "Format tanggal salah";
+    return { bool: false, mes: "Format tanggal salah" };
 
   const dateToConvert = new Date(tahun, digitBulan - 1, digitHari);
   const options = {

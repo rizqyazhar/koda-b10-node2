@@ -12,5 +12,10 @@
   },
   "dependencies": {
     "moment": "^2.31.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0"
   }
 }
